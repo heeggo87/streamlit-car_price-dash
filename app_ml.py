@@ -1,12 +1,39 @@
 import streamlit as st
-# 모델 불러오기 위한 라이브러리
 import joblib
 import pandas as pd
 
 def run_ml():
-    st.subheader('구매 금액 예측하기')
+    # CSS 스타일 추가
+    st.markdown("""
+        <style>
+        .prediction-header {
+            font-size: 1.8rem;
+            color: #2E7D32;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #2E7D32;
+        }
+        .input-label {
+            font-size: 1.1rem;
+            color: #1565C0;
+            margin-top: 1rem;
+        }
+        .prediction-result {
+            background-color: #E8F5E9;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+        </style>
+    """, unsafe_allow_html=True)
 
-    st.info('아래 정보를 입력하면, 금액을 예측해 드립니다.')
+    st.markdown('<h2 class="prediction-header">🎯 구매 금액 예측하기</h2>', unsafe_allow_html=True)
+
+    with st.container():
+        st.info('✨ 아래 정보를 입력하시면 AI가 최적의 구매 금액을 예측해드립니다.')
 
     gender_list = ['여자', '남자']
     gender = st.radio('성별을 입력하세요', gender_list)
